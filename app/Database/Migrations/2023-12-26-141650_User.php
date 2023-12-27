@@ -3,6 +3,7 @@
 namespace App\Database\Migrations;
 
 use CodeIgniter\Database\Migration;
+use CodeIgniter\Database\RawSql;
 
 class User extends Migration
 {
@@ -23,14 +24,23 @@ class User extends Migration
                 'type' => 'TEXT',
                 'null' => true,
             ],
+
+            'created_at' => [
+                'type'    => 'TIMESTAMP',
+                'default' => new RawSql('CURRENT_TIMESTAMP'),
+            ],
+            'updated_at' => [
+                'type'    => 'TIMESTAMP',
+                'null' => true,
+            ],
         ]);
-        
+
         $this->forge->addKey('id', true);
-        $this->forge->createTable('user');
+        $this->forge->createTable('users');
     }
 
     public function down()
     {
-        $this->forge->dropTable('user');
+        $this->forge->dropTable('users');
     }
 }

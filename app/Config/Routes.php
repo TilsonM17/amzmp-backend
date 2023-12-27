@@ -5,4 +5,5 @@ use CodeIgniter\Router\RouteCollection;
 /**
  * @var RouteCollection $routes
  */
-$routes->view('/', 'login');
+$routes->get('/', 'AuthController::loginForm', ['as' => 'login_form']);
+$routes->post('/login', 'AuthController::loginSubmit', ['as' => 'login_submit']);

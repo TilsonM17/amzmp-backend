@@ -10,9 +10,9 @@ class UserSeeder extends Seeder
     {
         $data = [
             'email' => 'admin@admin.com',
-            'password'    => 'admin',
+            'password'    => password_hash('admin', PASSWORD_BCRYPT),
         ];
-        
-        $this->db->table('user')->insert($data);
+
+        $this->db->table('users')->insert($data);
     }
 }
