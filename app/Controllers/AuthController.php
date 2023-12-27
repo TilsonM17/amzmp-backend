@@ -33,8 +33,22 @@ class AuthController extends BaseController
         if (!$this->validateLogin()) {
             return redirect()->route('login_form')->with('errors', $this->validator->getErrors());
         }
-        
+
         $user = new User();
-        
+        $userFound = $user->where('email', $this->request->getPost('email'))->first();
+
+        if (!$userFound) {
+            return redirect()->route('login_form')->with('message', 'User Not Found');
+        }
+
+        if (!password_verify($this->request->getPost('password'), $userFound->password)) {
+            return redirect()->route('login_form')->with('message', 'User Not Found');
+        }
+
+        unset($userFound->password);
+
+        session()->set('user', $userFound);
+
+        return redirect()->route('list_all');
     }
 }

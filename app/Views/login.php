@@ -23,9 +23,12 @@
                         <input type="submit" name="submit" class="btn btn-info btn-md" value="Submit">
                     </div>
 
-                    <div class=" mt-4 text-right">
-                        <a href="#" class="text-info">Register here</a>
-                    </div>
+                    <?php if (session()->getFlashdata('message')) : ?>
+                        <div class="mt-4 text-right alert alert-danger">
+                            <p><?= session()->getFlashdata('message') ?? '' ?></p>
+                        </div>
+
+                    <?php endif; ?>
                 </form>
             </div>
         </div>
