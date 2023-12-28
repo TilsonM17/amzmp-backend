@@ -52,4 +52,23 @@ class ClientEndereco extends Model
             'ibge' => $addressInfo['ibge']
         ]);
     }
+
+    public function updateClientAddress($clienteId, $address)
+    {
+        $addressInfo = json_decode($address['endereco_info'][0], true);
+
+        return $this->update($clienteId, [
+            'cep' => $address['endereco'],
+            'logradouro' => $addressInfo['logradouro'],
+            'complemento' => $addressInfo['complemento'],
+            'bairro' => $addressInfo['bairro'],
+            'localidade' => $addressInfo['localidade'],
+            'ibge' => $addressInfo['ibge']
+        ]);
+    }
+
+    public function deleteClientAddress($id)
+    {
+        $this->where('cliente_id', $id)->delete();
+    }
 }

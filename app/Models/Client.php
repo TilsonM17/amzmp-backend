@@ -12,7 +12,7 @@ class Client extends Model
     protected $returnType       = 'object';
     protected $useSoftDeletes   = false;
     protected $protectFields    = true;
-    protected $allowedFields    = ['email', 'nome'];
+    protected $allowedFields    = ['id', 'nome', 'email'];
 
     // Dates
     protected $useTimestamps = false;
@@ -47,5 +47,23 @@ class Client extends Model
         (new ClientTelefone)->createClientPhone($client, $request['telefone']);
 
         return $client;
+    }
+
+    public function updateClient($request)
+    {
+
+        $client = $this->update($request['hidden_id'],['nome' => $request['nome'], 'email' => $request['email']]);
+
+        (new ClientEndereco)->updateClientAddress($request['hidden_id'], $request);
+        (new ClientTelefone)->updateClientPhone($request['hidden_id'], $request['telefone']);
+
+        return $client;
+    }
+
+    public function deleteClient($id)
+    {
+        $this->delete($id);
+        (new ClientEndereco)->deleteClientAddress($id);
+        (new ClientTelefone)->deleteClientePhone($id);
     }
 }

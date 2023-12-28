@@ -12,7 +12,7 @@ class ClientTelefone extends Model
     protected $returnType       = 'object';
     protected $useSoftDeletes   = false;
     protected $protectFields    = true;
-    protected $allowedFields    = ['cliente_id','telefone'];
+    protected $allowedFields    = ['cliente_id', 'telefone'];
 
     // Dates
     protected $useTimestamps = false;
@@ -42,5 +42,15 @@ class ClientTelefone extends Model
     public function createClientPhone($clienteId, $phone)
     {
         return $this->insert(['cliente_id' => $clienteId, 'telefone' => $phone]);
+    }
+
+    public function updateClientPhone($clienteId, $phone)
+    {
+        return $this->update($clienteId, ['telefone' => $phone]);
+    }
+
+    public function deleteClientePhone($id)
+    {
+        $this->where('cliente_id', $id)->delete();
     }
 }
