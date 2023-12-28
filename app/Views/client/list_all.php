@@ -31,23 +31,25 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <th scope="row">1</th>
-                        <td>Mark</td>
-                        <td>Otto</td>
-                        <td>@mdo</td>
-                        <td>@mdo</td>
-                        <td>
-                            <a class="btn btn-outline-primary">
-                                <i class="fa-regular fa-pen-to-square"></i>
-                            </a>
-                        </td>
-                        <td>
-                            <a class="btn btn-outline-danger">
-                                <i class="fa-solid fa-trash"></i>
-                            </a>
-                        </td>
-                    </tr>
+                    <?php foreach ($clients as $client) : ?>
+                        <tr>
+                            <th scope="row"><?= $client['id'] ?></th>
+                            <td><?= $client['nome'] ?></td>
+                            <td><?= $client['email'] ?></td>
+                            <td><?= $client['telefone'] ?></td>
+                            <td><?= $client['localidade'] ?? $client['cep'] ?? $client['bairro'] ?? 'Unknow' ?></td>
+                            <td>
+                                <a class="btn btn-outline-primary">
+                                    <i class="fa-regular fa-pen-to-square"></i>
+                                </a>
+                            </td>
+                            <td>
+                                <a class="btn btn-outline-danger">
+                                    <i class="fa-solid fa-trash"></i>
+                                </a>
+                            </td>
+                        </tr>
+                    <?php endforeach; ?>
                 </tbody>
             </table>
         </div>
