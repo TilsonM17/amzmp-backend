@@ -1,5 +1,4 @@
 CONTAINER_NAME = php
-ENV_FILE_PATH = .env
 
 up:
 	docker-compose --env-file .env up -d
@@ -14,7 +13,7 @@ shell:
 	docker exec -it $(CONTAINER_NAME) bash
 
 copy-env:
-	docker cp .env.example $(CONTAINER_NAME):$(ENV_FILE_PATH)
+	cp .env.example .env
 
 migrate:
 	docker exec -it $(CONTAINER_NAME) php spark migrate
