@@ -24,8 +24,8 @@ seed:
 
 
 setup:
-	make up	
 	make copy-env
+	make up	
 	make migrate
 	make seed
 	
