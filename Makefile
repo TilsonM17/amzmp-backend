@@ -1,4 +1,5 @@
 CONTAINER_NAME = php
+ENV_FILE_PATH = .env
 
 up:
 	docker-compose --env-file .env up -d
