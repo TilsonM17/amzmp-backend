@@ -21,7 +21,7 @@ class ClienteEndereco extends Migration
                 'unsigned'       => true,
             ],
             'cep' => [
-                'type'       => 'INT',
+                'type'       => 'VARCHAR',
                 'constraint' => '100',
             ],
             'logradouro' => [

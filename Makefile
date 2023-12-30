@@ -1,4 +1,4 @@
-CONTAINER_NAME = php
+CONTAINER_NAME = php-amzmp
 
 up:
 	docker-compose --env-file .env up -d
@@ -15,16 +15,19 @@ shell:
 copy-env:
 	cp .env.example .env
 
+composer-install:
+	docker exec -it $(CONTAINER_NAME) composer install
+
 migrate:
 	docker exec -it $(CONTAINER_NAME) php spark migrate
 
 seed:
 	docker exec -it $(CONTAINER_NAME) php spark db:seed UserSeeder
 
-
 setup:
 	make copy-env
 	make up	
+	make composer-install
 	make migrate
 	make seed
 	

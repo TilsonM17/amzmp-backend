@@ -9,6 +9,17 @@
             <p class="h2">Lista de Clientes</p>
         </div>
 
+        <?php if (session()->getFlashdata('errors')) : ?>
+            <div class="alert alert-danger">
+
+                <?php foreach (session()->getFlashdata('errors') as $error) : ?>
+                    <p class="h3">
+                        <?= $error ?>
+                    </p>
+                <?php endforeach; ?>
+
+            </div>
+        <?php endif ?>
 
         <div class="col-md-6">
             <p class="text-end">
@@ -38,7 +49,7 @@
                                 <td><?= $client['nome'] ?></td>
                                 <td><?= $client['email'] ?></td>
                                 <td><?= $client['telefone'] ?></td>
-                                <td><?= $client['localidade'] ?? $client['cep'] ?? $client['bairro'] ?? 'Unknow' ?></td>
+                                <td><?= $client['localidade'] ?? $client['cep'] ?? 'Unknow' ?></td>
                                 <td>
                                     <a class="btn btn-outline-primary" href="<?= route_to('update_client', $client['id']) ?>">
                                         <i class="fa-regular fa-pen-to-square"></i>
@@ -53,7 +64,7 @@
                         <?php endforeach; ?>
                     <?php else : ?>
                         <div>
-                            <p class="h3">Não existem registros!</p>
+                            <p class="h5">Não existem registros!</p>
                         </div>
                     <?php endif; ?>
                 </tbody>

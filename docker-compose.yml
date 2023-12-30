@@ -6,7 +6,7 @@ services:
       context: ./docker
       dockerfile: Dockerfile
     working_dir: /var/www/
-    container_name: php
+    container_name: php-amzmp
     ports:
       - 9000:9000
     volumes:
@@ -18,7 +18,7 @@ services:
   #Nginx Service
   webserver:
     image: nginx:alpine
-    container_name: webserver-nginx
+    container_name: webserver-nginx-amzmp
     restart: unless-stopped
     ports:
       - 80:80

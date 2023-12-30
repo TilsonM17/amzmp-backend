@@ -42,11 +42,11 @@ class ClientController extends BaseController
     public function updateClientSubmit()
     {
         if (!$this->validateUpdateCostumer()) {
-            return redirect()->route('update_client')->with('errors', $this->validator->getErrors());
+            return redirect()->route('list_all')->with('errors', $this->validator->getErrors());
         }
 
         if (!(new Client)->updateClient($this->request->getPost())) {
-            return redirect()->route('update_client');
+            return redirect()->route('list_all')->with('errors', 'Não foi possivel atualizar o registro');
         }
 
         return redirect()->route('list_all')->with('success', 'Cliente atualizado com sucesso');

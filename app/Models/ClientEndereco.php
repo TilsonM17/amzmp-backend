@@ -59,11 +59,11 @@ class ClientEndereco extends Model
 
         return $this->update($clienteId, [
             'cep' => $address['endereco'],
-            'logradouro' => $addressInfo['logradouro'],
-            'complemento' => $addressInfo['complemento'],
-            'bairro' => $addressInfo['bairro'],
-            'localidade' => $addressInfo['localidade'],
-            'ibge' => $addressInfo['ibge']
+            'logradouro' => $addressInfo['logradouro'] ?? '',
+            'complemento' => $addressInfo['complemento'] ?? '',
+            'bairro' => $addressInfo['bairro'] ?? '',
+            'localidade' => $addressInfo['localidade'] ?? '',
+            'ibge' => $addressInfo['ibge'] ?? ''
         ]);
     }
 
