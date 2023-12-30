@@ -36,4 +36,6 @@ make setup
 ```
 ## Considerações Finais
 
+Para cadastrar um endereço use um CEP, como exemplo pode usar o seguinte CEP: **01001000**
+
 Qualquer duvida fico ao dispor para ajudar.
