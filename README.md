@@ -27,6 +27,8 @@ Mas volto a reforçar: **Incentivo-lhe fortemente a usar o docker**
 
 ## Instalação
 
+Clone o projeto e entre na pasta do projeto.
+
 ### Levantar os containers
 
 Execute o comando abaixo para levantar e preparar todo o ambiente.
@@ -34,6 +36,15 @@ Execute o comando abaixo para levantar e preparar todo o ambiente.
 ```sh 
 make setup
 ```
+
+Acesse o seu [localhost](http://localhost) e comece a testar a aplicação.
+
+Para fazer login use as credenciais: 
+
+- Email: **admin@admin.com** 
+- Senha: **admin**
+
+
 ## Considerações Finais
 
 Para cadastrar um endereço use um CEP, como exemplo pode usar o seguinte CEP: **01001000**

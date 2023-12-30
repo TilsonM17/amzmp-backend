@@ -40,15 +40,6 @@ services:
       - './.docker/mysql:/var/lib/mysql'
     networks:
       - amzmp_backend
-  # Maybe I will Use.  
-  # testdb:
-  #   image: 'mysql:8.0.30'
-  #   environment:
-  #     MYSQL_ROOT_PASSWORD: 'root'
-  #     MYSQL_DATABASE: 'test_db'
-  #     MYSQL_ALLOW_EMPTY_PASSWORD: 1
-  #   networks:
-  #     - amzmp_backend
 
 networks:
   amzmp_backend:

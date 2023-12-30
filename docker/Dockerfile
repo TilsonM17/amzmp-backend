@@ -67,10 +67,6 @@ COPY . /var/www/
 # Copy existing application directory permissions
 COPY --chown=$USERNAME:$USERNAME .. /var/www/
 
-# Instalar dependências do Composer
-RUN if [ -f composer.json ]; then composer install; fi
-
-
 # Change current user to www
 USER $USERNAME
 
